@@ -281,6 +281,31 @@ mvn clean install
 4. 执行 `mvn clean deploy`。
 5. 业务项目只保留正常 Maven dependency，不再依赖本地源码路径。
 
+## 发布到 Maven Central
+
+本仓库已配置 Central Portal Maven 发布插件。发布前需要准备：
+
+1. GitHub 仓库存在且 POM 中的 SCM 地址可访问。
+2. Sonatype Central Portal 中 `io.github.wxganzhanfan` namespace 已验证。
+3. Maven `settings.xml` 中配置 server id `central` 的 Portal token。
+4. 本机或 CI 中可用 GPG/PGP 签名密钥。
+5. 将版本从 `0.1.0-SNAPSHOT` 调整为正式版本，例如 `0.1.0`。
+
+建议先执行：
+
+```powershell
+mvn clean verify
+mvn -Prelease -Dgpg.skip=true -DskipTests package
+```
+
+正式上传执行：
+
+```powershell
+mvn -Prelease deploy
+```
+
+默认配置 `autoPublish=false`，上传后需要在 Central Portal 中确认并发布。详细步骤见 [Maven Central 发布指南](docs/maven-central-release.md)。
+
 ## 文档
 
 - [协议范围](docs/protocol-scope.md)
@@ -288,6 +313,7 @@ mvn clean install
 - [工具开发指南](docs/tool-authoring-guide.md)
 - [Agent 接入指南](docs/agent-integration-guide.md)
 - [迁移说明](docs/migration-notes.md)
+- [Maven Central 发布指南](docs/maven-central-release.md)
 - [更新日志](CHANGELOG.md)
 - [安全政策](SECURITY.md)
 - [第三方开源声明](THIRD-PARTY-NOTICES.md)

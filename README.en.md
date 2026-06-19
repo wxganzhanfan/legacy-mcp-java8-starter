@@ -281,6 +281,31 @@ For reuse across multiple projects:
 4. Run `mvn clean deploy`.
 5. Let application projects depend on the Maven artifact normally, without relying on local source paths.
 
+## Publishing to Maven Central
+
+This repository is configured with the Central Portal Maven publishing plugin. Before publishing, prepare:
+
+1. The GitHub repository exists and the SCM URL in the POM is reachable.
+2. The `io.github.wxganzhanfan` namespace is verified in Sonatype Central Portal.
+3. Maven `settings.xml` contains Portal token credentials under server id `central`.
+4. A GPG/PGP signing key is available on the local machine or in CI.
+5. The version is changed from `0.1.0-SNAPSHOT` to a release version such as `0.1.0`.
+
+Run these checks first:
+
+```powershell
+mvn clean verify
+mvn -Prelease -Dgpg.skip=true -DskipTests package
+```
+
+Upload the release with:
+
+```powershell
+mvn -Prelease deploy
+```
+
+The default `autoPublish=false` setting uploads the deployment for validation, then requires manual confirmation in Central Portal. See [Maven Central release guide](docs/maven-central-release.en.md) for the full workflow.
+
 ## Documentation
 
 - [Protocol scope](docs/protocol-scope.en.md)
@@ -288,6 +313,7 @@ For reuse across multiple projects:
 - [Tool authoring guide](docs/tool-authoring-guide.en.md)
 - [Agent integration guide](docs/agent-integration-guide.en.md)
 - [Migration notes](docs/migration-notes.en.md)
+- [Maven Central release guide](docs/maven-central-release.en.md)
 - [Changelog](CHANGELOG.en.md)
 - [Security policy](SECURITY.en.md)
 - [Third-party notices](THIRD-PARTY-NOTICES.en.md)
