@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: legacy-mcp-security-sample
+
+legacy:
+  mcp:
+    enabled: true
+    endpoint: /mcp
+    server-name: legacy-mcp-security-sample
+    agents:
+      claude:
+        api-key: secure-dev-key
+        allowed-tools:
+          - demo.echo

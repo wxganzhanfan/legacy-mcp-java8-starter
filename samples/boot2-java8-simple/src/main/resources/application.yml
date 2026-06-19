@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: legacy-mcp-simple-sample
+
+legacy:
+  mcp:
+    enabled: true
+    endpoint: /mcp
+    server-name: legacy-mcp-simple-sample
+    server-version: 0.1.0
+    agents:
+      codex:
+        api-key: dev-key
+        allowed-tools:
+          - demo.echo
+          - demo.user.search
