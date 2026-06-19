@@ -59,8 +59,10 @@ mvn -Prelease -Dgpg.skip=true -DskipTests package
 Verify that local GPG signing works:
 
 ```powershell
-mvn -Prelease -DskipTests verify
+mvn -Prelease -DskipTests "-Dgpg.keyname=<KEY_FINGERPRINT>" verify
 ```
+
+If the machine has only one GPG private key, `-Dgpg.keyname` can be omitted. If multiple private keys exist, explicitly specify the fingerprint of the key used for release.
 
 ## Release
 
@@ -69,7 +71,7 @@ Before releasing, change all module versions from `0.1.0-SNAPSHOT` to a release 
 Upload to Central Portal:
 
 ```powershell
-mvn -Prelease deploy
+mvn -Prelease "-Dgpg.keyname=<KEY_FINGERPRINT>" deploy
 ```
 
 The current configuration uses `autoPublish=false`. Maven uploads the deployment for Central Portal validation, then manual confirmation is required in the Portal. Keep this mode for the first release to avoid accidentally publishing immutable artifacts.

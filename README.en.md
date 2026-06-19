@@ -296,7 +296,7 @@ Run these checks first:
 ```powershell
 mvn clean verify
 mvn -Prelease -Dgpg.skip=true -DskipTests package
-mvn -Prelease -DskipTests verify
+mvn -Prelease -DskipTests "-Dgpg.keyname=<KEY_FINGERPRINT>" verify
 ```
 
 Upload the release with:
@@ -305,7 +305,7 @@ Upload the release with:
 mvn -Prelease deploy
 ```
 
-The default `autoPublish=false` setting uploads the deployment for validation, then requires manual confirmation in Central Portal. See [Maven Central release guide](docs/maven-central-release.en.md) for the full workflow.
+If the machine has only one GPG private key, `-Dgpg.keyname` can be omitted. The default `autoPublish=false` setting uploads the deployment for validation, then requires manual confirmation in Central Portal. See [Maven Central release guide](docs/maven-central-release.en.md) for the full workflow.
 
 ## Documentation
 

@@ -59,8 +59,10 @@ mvn -Prelease -Dgpg.skip=true -DskipTests package
 确认本机 GPG 签名可用：
 
 ```powershell
-mvn -Prelease -DskipTests verify
+mvn -Prelease -DskipTests "-Dgpg.keyname=<KEY_FINGERPRINT>" verify
 ```
+
+如果本机只有一个 GPG 私钥，可以省略 `-Dgpg.keyname`。如果存在多个私钥，建议显式指定要用于发布的 key 指纹。
 
 ## 正式发布
 
@@ -69,7 +71,7 @@ mvn -Prelease -DskipTests verify
 上传到 Central Portal：
 
 ```powershell
-mvn -Prelease deploy
+mvn -Prelease "-Dgpg.keyname=<KEY_FINGERPRINT>" deploy
 ```
 
 当前配置使用 `autoPublish=false`。这意味着 Maven 会上传部署包并等待 Central Portal 校验，校验通过后需要在 Portal 中手动确认发布。第一次发布建议保留这个模式，避免误发布无法修改的制品。

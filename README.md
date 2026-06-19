@@ -296,7 +296,7 @@ mvn clean install
 ```powershell
 mvn clean verify
 mvn -Prelease -Dgpg.skip=true -DskipTests package
-mvn -Prelease -DskipTests verify
+mvn -Prelease -DskipTests "-Dgpg.keyname=<KEY_FINGERPRINT>" verify
 ```
 
 正式上传执行：
@@ -305,7 +305,7 @@ mvn -Prelease -DskipTests verify
 mvn -Prelease deploy
 ```
 
-默认配置 `autoPublish=false`，上传后需要在 Central Portal 中确认并发布。详细步骤见 [Maven Central 发布指南](docs/maven-central-release.md)。
+如果本机只有一个 GPG 私钥，可以省略 `-Dgpg.keyname`。默认配置 `autoPublish=false`，上传后需要在 Central Portal 中确认并发布。详细步骤见 [Maven Central 发布指南](docs/maven-central-release.md)。
 
 ## 文档
 
