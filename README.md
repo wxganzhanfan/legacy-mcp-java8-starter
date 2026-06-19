@@ -69,7 +69,7 @@ Spring Boot 2.x 项目优先添加 starter：
 <dependency>
   <groupId>io.github.wxganzhanfan</groupId>
   <artifactId>legacy-mcp-spring-boot2-starter</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -79,7 +79,7 @@ Spring Boot 2.x 项目优先添加 starter：
 <dependency>
   <groupId>io.github.wxganzhanfan</groupId>
   <artifactId>legacy-mcp-core</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -215,7 +215,7 @@ Invoke-RestMethod -Method Post -Uri http://localhost:8080/mcp `
 一些 agent 只支持通过 stdio 启动 MCP server。此时可以让业务系统继续提供 HTTP `/mcp`，再在本机运行 bridge：
 
 ```powershell
-java -jar legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar `
+java -jar legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0.jar `
   --url http://localhost:8080/mcp `
   --api-key dev-key
 ```
@@ -296,6 +296,7 @@ mvn clean install
 ```powershell
 mvn clean verify
 mvn -Prelease -Dgpg.skip=true -DskipTests package
+mvn -Prelease -DskipTests verify
 ```
 
 正式上传执行：

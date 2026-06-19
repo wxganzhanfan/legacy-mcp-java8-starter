@@ -56,6 +56,12 @@ mvn clean verify
 mvn -Prelease -Dgpg.skip=true -DskipTests package
 ```
 
+确认本机 GPG 签名可用：
+
+```powershell
+mvn -Prelease -DskipTests verify
+```
+
 ## 正式发布
 
 正式发布前，将所有模块版本从 `0.1.0-SNAPSHOT` 改为正式版本，例如 `0.1.0`，并更新 changelog。

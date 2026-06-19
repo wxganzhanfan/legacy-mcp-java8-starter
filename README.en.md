@@ -69,7 +69,7 @@ For Spring Boot 2.x applications, prefer the starter:
 <dependency>
   <groupId>io.github.wxganzhanfan</groupId>
   <artifactId>legacy-mcp-spring-boot2-starter</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -79,7 +79,7 @@ The primary support target is Java 8 + Spring Boot 2. For Boot3/Boot4 projects t
 <dependency>
   <groupId>io.github.wxganzhanfan</groupId>
   <artifactId>legacy-mcp-core</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -215,7 +215,7 @@ Invoke-RestMethod -Method Post -Uri http://localhost:8080/mcp `
 Some agents only support launching MCP servers over stdio. In that case, keep the business application exposing HTTP `/mcp` and run the bridge locally:
 
 ```powershell
-java -jar legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar `
+java -jar legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0.jar `
   --url http://localhost:8080/mcp `
   --api-key dev-key
 ```
@@ -296,6 +296,7 @@ Run these checks first:
 ```powershell
 mvn clean verify
 mvn -Prelease -Dgpg.skip=true -DskipTests package
+mvn -Prelease -DskipTests verify
 ```
 
 Upload the release with:

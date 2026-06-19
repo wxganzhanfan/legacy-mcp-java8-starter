@@ -82,7 +82,7 @@ mvn -pl legacy-mcp-stdio-bridge -am package -DskipTests
 然后让 agent 启动这个 jar：
 
 ```powershell
-java -jar <repo>\legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar `
+java -jar <repo>\legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0.jar `
   --url http://localhost:8080/mcp `
   --api-key dev-key `
   --api-key-header X-MCP-API-Key `
@@ -130,7 +130,7 @@ bridge 行为：
   "command": "java",
   "args": [
     "-jar",
-    "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar",
+    "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0.jar",
     "--url",
     "http://localhost:8080/mcp",
     "--api-key",
@@ -154,7 +154,7 @@ Claude Desktop 常见方式是配置 stdio MCP server。可以把 bridge 配到 
       "command": "java",
       "args": [
         "-jar",
-        "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar",
+        "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0.jar",
         "--url",
         "http://localhost:8080/mcp",
         "--api-key",

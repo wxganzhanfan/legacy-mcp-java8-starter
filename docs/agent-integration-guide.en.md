@@ -82,7 +82,7 @@ mvn -pl legacy-mcp-stdio-bridge -am package -DskipTests
 Then configure the agent to launch this jar:
 
 ```powershell
-java -jar <repo>\legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar `
+java -jar <repo>\legacy-mcp-stdio-bridge\target\legacy-mcp-stdio-bridge-0.1.0.jar `
   --url http://localhost:8080/mcp `
   --api-key dev-key `
   --api-key-header X-MCP-API-Key `
@@ -130,7 +130,7 @@ If the Codex environment only supports stdio MCP servers, use the bridge:
   "command": "java",
   "args": [
     "-jar",
-    "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar",
+    "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0.jar",
     "--url",
     "http://localhost:8080/mcp",
     "--api-key",
@@ -154,7 +154,7 @@ Claude Desktop commonly uses stdio MCP servers. Configure the bridge under `mcpS
       "command": "java",
       "args": [
         "-jar",
-        "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0-SNAPSHOT.jar",
+        "C:\\path\\to\\legacy-mcp-java8-starter\\legacy-mcp-stdio-bridge\\target\\legacy-mcp-stdio-bridge-0.1.0.jar",
         "--url",
         "http://localhost:8080/mcp",
         "--api-key",

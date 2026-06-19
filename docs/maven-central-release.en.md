@@ -56,6 +56,12 @@ Then verify that the release profile can generate sources and javadocs:
 mvn -Prelease -Dgpg.skip=true -DskipTests package
 ```
 
+Verify that local GPG signing works:
+
+```powershell
+mvn -Prelease -DskipTests verify
+```
+
 ## Release
 
 Before releasing, change all module versions from `0.1.0-SNAPSHOT` to a release version such as `0.1.0`, and update the changelog.
